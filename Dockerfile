@@ -17,12 +17,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
     vim \
+    ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR ${HOMEDIR}
 
 # 使用 CACHEBUST 参数来强制更新
-RUN git clone https://github.com/aigem/edgeTTS-openai-api.git \
+RUN git https://github.com/EvanZhangcarpe/edgeTTS-openai-api.git \
     && chmod +x ${HOMEDIR}/edgeTTS-openai-api/src/*.sh \
     && ls -la ${HOMEDIR}/edgeTTS-openai-api/src \
     && ls -la ${HOMEDIR}/edgeTTS-openai-api \
